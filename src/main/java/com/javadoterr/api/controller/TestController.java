@@ -26,7 +26,7 @@ public class TestController {
         log.info("CONTROLLER : request : METHOD : GET with Pathparam");
 
         String message = "Hey! All The Best : "+name+" : " + LocalDateTime.now().toString();
-        log.info("CONTROLLER : response : METHOD : GET with Pathparam");
+        log.info("CONTROLLER : response : METHOD : GET with Pathparam : {}", message);
         return ResponseEntity.ok().body(message);
     }
 }
