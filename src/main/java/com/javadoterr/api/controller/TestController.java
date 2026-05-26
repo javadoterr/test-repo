@@ -3,6 +3,7 @@ package com.javadoterr.api.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,13 @@ public class TestController {
     public ResponseEntity<?> greeting(){
         log.info("CONTROLLER : received request : METHOD : GET");
         return ResponseEntity.ok().body("Hey! This is test message : "
+                + LocalDateTime.now().toString());
+    }
+
+    @GetMapping(path = "/hello/{name}")
+    public ResponseEntity<?> greetWithMessage(@PathVariable(name = "name") String name){
+        log.info("CONTROLLER : received request : METHOD : GET with Pathparam");
+        return ResponseEntity.ok().body("Hey! All The Best : "+name+" : "
                 + LocalDateTime.now().toString());
     }
 }
