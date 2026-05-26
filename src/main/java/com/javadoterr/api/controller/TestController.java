@@ -23,8 +23,10 @@ public class TestController {
 
     @GetMapping(path = "/hello/{name}")
     public ResponseEntity<?> greetWithMessage(@PathVariable(name = "name") String name){
-        log.info("CONTROLLER : received request : METHOD : GET with Pathparam");
-        return ResponseEntity.ok().body("Hey! All The Best : "+name+" : "
-                + LocalDateTime.now().toString());
+        log.info("CONTROLLER : request : METHOD : GET with Pathparam");
+
+        String message = "Hey! All The Best : "+name+" : " + LocalDateTime.now().toString();
+        log.info("CONTROLLER : response : METHOD : GET with Pathparam");
+        return ResponseEntity.ok().body(message);
     }
 }
